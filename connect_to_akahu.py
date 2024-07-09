@@ -3,6 +3,10 @@ import os
 import requests
 import json
 
+# Create the "data" directory if it doesn't exist
+input_dir = 'input'
+os.makedirs(input_dir, exist_ok=True)
+
 # Access environment variables
 user_access_token = os.getenv('USER_TOKEN')
 app_access_token = os.getenv('API_TOKEN')
@@ -25,8 +29,10 @@ if response.status_code == 200:
     print("Data retrieved successfully!")
     # Process the data as needed
 
+
     # Save JSON response to a file
-    with open('transactions.json', 'w') as json_file:
+    input_file_path = os.path.join(input_dir, 'transactions.json')
+    with open(input_file_path, 'w') as json_file:
         json.dump(data, json_file, indent=4)
 
 else:
