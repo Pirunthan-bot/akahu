@@ -23,7 +23,7 @@ with open(input_file_path) as json_file:
 
 
 # Normalize JSON data into a DataFrame and rename headers
-df = pd.json_normalize(data['items'])
+df = pd.json_normalize(data['transactions'])
 
 
 #df.columns = ['transaction_id','account_id','user_id', 'connection_id','created_date_time','updated_date_time',"transaction_date","transaction_description",'amount','balance','payment_type', 'hash']
